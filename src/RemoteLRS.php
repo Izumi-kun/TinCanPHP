@@ -322,7 +322,7 @@ class RemoteLRS implements LRSInterface
                     $headers[$key] .= "\r\n\t".trim($h[0]); // [+]
                 }
                 elseif (! $key) {// [+]
-                    $headers[0] = trim($h[0]);trim($h[0]); // [+]
+                    $headers[0] = trim($h[0]); // [+]
                 }
             } // [+]
         }

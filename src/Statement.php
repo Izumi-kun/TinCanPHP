@@ -369,10 +369,7 @@ class Statement extends StatementBase
                 // Use format('c') instead of format(\DateTime::ISO8601) due to bug in format(\DateTime::ISO8601) that generates an invalid timestamp.
                 $value = $value->format('c');
             }
-            elseif (is_string($value)) {
-                $value = $value;
-            }
-            else {
+            elseif (!is_string($value)) {
                 throw new \InvalidArgumentException('type of arg1 must be string or DateTime');
             }
         }
