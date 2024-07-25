@@ -118,7 +118,7 @@ class RemoteLRS implements LRSInterface
             }
         }
         if (isset($options['params']) && count($options['params']) > 0) {
-            $url .= '?' . http_build_query($options['params'], null, '&', PHP_QUERY_RFC3986);
+            $url .= '?' . http_build_query($options['params'], '', '&', PHP_QUERY_RFC3986);
         }
 
         if (($method === 'PUT' || $method === 'POST') && isset($options['content'])) {
@@ -137,7 +137,7 @@ class RemoteLRS implements LRSInterface
         // normal handling
         //
         set_error_handler(
-            function ($errno, $errstr, $errfile, $errline, array $errcontext) {
+            function ($errno, $errstr, $errfile, $errline) {
                 // "!== false" is intentional. strpos() can return 0, which is falsey, but returning
                 // 0 matches our "true" condition. Using strict equality to avoid that confusion.
                 if ($errno == E_NOTICE && strpos($errstr, 'Array to string conversion') !== false) {

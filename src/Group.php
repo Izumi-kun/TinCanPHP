@@ -24,7 +24,11 @@ class Group extends Agent
     protected $member;
 
     public function __construct() {
-        call_user_func_array('parent::__construct', func_get_args());
+        if (PHP_VERSION_ID < 50600) {
+            call_user_func_array('parent::__construct', func_get_args());
+        } else {
+            parent::__construct(...func_get_args());
+        }
 
         if (! isset($this->member)) {
             $this->setMember(array());

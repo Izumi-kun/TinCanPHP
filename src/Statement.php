@@ -41,7 +41,11 @@ class Statement extends StatementBase
     protected $attachments;
 
     public function __construct() {
-        call_user_func_array('parent::__construct', func_get_args());
+        if (PHP_VERSION_ID < 50600) {
+            call_user_func_array('parent::__construct', func_get_args());
+        } else {
+            parent::__construct(...func_get_args());
+        }
 
         if (func_num_args() == 1) {
             $arg = func_get_arg(0);
