@@ -1,5 +1,5 @@
 {
-    "name": "rusticisoftware/tincan",
+    "name": "izumi-kun/tincan",
     "type": "library",
     "description": "Experience API (Tin Can API) Library",
     "homepage": "http://rusticisoftware.github.io/TinCanPHP/",
@@ -22,6 +22,9 @@
     "support": {
         "email": "support@tincanapi.com",
         "issues": "https://github.com/RusticiSoftware/TinCanPHP/issues"
+    },
+    "replace": {
+        "rusticisoftware/tincan": "*"
     },
     "require": {
         "php": "~5.5 || ^7 || ^8",
